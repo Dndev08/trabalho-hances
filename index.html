@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Yaminawá: A Liga dos Guardiões Ancestrais</title>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Unbounded', cursive;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.85)),
+                  url('https://images.unsplash.com/photo-1588345913300-3b0e61db4531') no-repeat center center fixed;
+      background-size: cover;
+      color: #f0f0f0;
+      line-height: 1.6;
+    }
+    header {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #ffc107;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 15px 10px;
+      gap: 15px;
+    }
+    nav a {
+      color: #ffdd57;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: background 0.3s ease;
+    }
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+    }
+    h2 {
+      color: #ffc107;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    .card {
+      background: rgba(36, 36, 36, 0.95);
+      border-left: 5px solid #ffc107;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .map-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .map-image {
+      max-width: 100%;
+      border: 4px solid #ffc107;
+      border-radius: 12px;
+      margin-top: 20px;
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      transition: transform 0.2s ease;
+    }
+    .map-image:hover {
+      transform: scale(1.02);
+    }
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: rgba(0,0,0,0.85);
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2023/03/08/audio_8c9dc8e327.mp3?filename=indigenous-rhythm-140078.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <header>
+    Yaminawá: A Liga dos Guardiões Ancestrais
+  </header>
+
+  <nav>
+    <a href="#sobre">Sobre o Jogo</a>
+    <a href="#componentes">Componentes</a>
+    <a href="#como-jogar">Como Jogar</a>
+    <a href="#tabuleiro">Tabuleiro</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <section id="sobre">
+    <h2>Sobre o Jogo</h2>
+    <p>Um jogo de tabuleiro interativo que resgata os saberes ancestrais da etnia Yaminawá, misturando mitologia, cultura e desafios em uma experiência inspirada por Jumanji e Harry Potter.</p>
+  </section>
+
+  <section id="componentes">
+    <h2>Componentes</h2>
+    <div class="card-grid">
+      <div class="card">Tabuleiro com territórios sagrados e áreas místicas</div>
+      <div class="card">Cartas de desafio e sabedoria</div>
+      <div class="card">Moedas espirituais: Miara</div>
+      <div class="card">Peças indígenas e marcadores</div>
+    </div>
+  </section>
+
+  <section id="como-jogar">
+    <h2>Como Jogar</h2>
+    <p>Explore os territórios, cumpra missões culturais, enfrente desafios mágicos e conquiste respeito ancestral. Reúna Miara, participe do Círculo de Sabedoria e proteja o saber Yaminawá!</p>
+  </section>
+
+  <section id="tabuleiro" class="map-section">
+    <h2>Tabuleiro Interativo</h2>
+    <p>Clique nas áreas do tabuleiro para descobrir mais sobre os territórios sagrados.</p>
+    <img src="https://cdn.pixabay.com/photo/2019/09/15/15/03/map-4477052_1280.png" alt="Tabuleiro Yaminawá" class="map-image" onclick="alert('Você clicou em um território sagrado! Em breve, interação completa.')">
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <p>Em breve você poderá jogar online ou baixar o manual completo!</p>
+  </section>
+
+  <footer>
+    Criado por @simplciio e dn | Projeto Educacional e Interativo 2025
+  </footer>
+</body>
+</html>
