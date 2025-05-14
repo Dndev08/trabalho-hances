@@ -473,13 +473,13 @@
       // Verificar se ganhou ou perdeu
       if (score >= 5) {
         gameState = 'win';
-        setTimeout(renderWinScreen, 5000);
+        setTimeout(renderWinScreen, 7000);
         return;
       }
       
       if (lives <= 0) {
         gameState = 'lose';
-        setTimeout(renderLoseScreen, 5000);
+        setTimeout(renderLoseScreen, 7000);
         return;
       }
       
