@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Yaminawá: A Liga dos Guardiões Ancestrais</title>
+  <title>Yaminawá: O Desafio dos Guardiões</title>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     * {
@@ -94,59 +94,407 @@
       font-size: 0.9rem;
       color: #aaa;
     }
+    
+    /* Estilos do Jogo */
+    .game-container {
+      text-align: center;
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    
+    .game-title {
+      color: #ffc107;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .game-question {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      line-height: 1.5;
+      color: #fff;
+    }
+    
+    .game-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    
+    .game-option {
+      background: rgba(255, 193, 7, 0.1);
+      border: 2px solid #ffc107;
+      border-radius: 8px;
+      padding: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+    
+    .game-option:hover {
+      background: rgba(255, 193, 7, 0.3);
+      transform: translateY(-3px);
+    }
+    
+    .game-stats {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+    }
+    
+    .game-lives {
+      color: #ff5252;
+    }
+    
+    .game-score {
+      color: #4caf50;
+    }
+    
+    .game-progress {
+      height: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    
+    .game-progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #ffc107, #ff9800);
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+    
+    .game-feedback {
+      min-height: 30px;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    
+    .game-button {
+      background: #ffc107;
+      color: #000;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-family: 'Unbounded', cursive;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+    
+    .game-button:hover {
+      background: #ffd54f;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .game-start-screen {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    .game-end-screen {
+      text-align: center;
+    }
+    
+    .game-end-title {
+      font-size: 2.5rem;
+      color: #ffc107;
+      margin-bottom: 20px;
+    }
+    
+    .game-end-message {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+    }
+    
+    .tribal-pattern {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      opacity: 0.1;
+      z-index: -1;
+      background-image: url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+    }
   </style>
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="https://cdn.pixabay.com/download/audio/2023/03/08/audio_8c9dc8e327.mp3?filename=indigenous-rhythm-140078.mp3" type="audio/mpeg">
-    Seu navegador não suporta áudio.
-  </audio>
-
+  <div class="tribal-pattern"></div>
+  
   <header>
-    Yaminawá: A Liga dos Guardiões Ancestrais
+    Yaminawá: O Desafio dos Guardiões
   </header>
 
   <nav>
     <a href="#sobre">Sobre o Jogo</a>
-    <a href="#componentes">Componentes</a>
+    <a href="#jogar">Jogar</a>
     <a href="#como-jogar">Como Jogar</a>
-    <a href="#tabuleiro">Tabuleiro</a>
     <a href="#contato">Contato</a>
   </nav>
 
-  <section id="sobre">
-    <h2>Sobre o Jogo</h2>
-    <p>Um jogo de tabuleiro interativo que resgata os saberes ancestrais da etnia Yaminawá, misturando mitologia, cultura e desafios em uma experiência inspirada por Jumanji e Harry Potter.</p>
+  <section id="jogar">
+    <div class="game-container" id="gameContainer">
+      <!-- O jogo será renderizado aqui pelo JavaScript -->
+    </div>
   </section>
 
-  <section id="componentes">
-    <h2>Componentes</h2>
-    <div class="card-grid">
-      <div class="card">Tabuleiro com territórios sagrados e áreas místicas</div>
-      <div class="card">Cartas de desafio e sabedoria</div>
-      <div class="card">Moedas espirituais: Miara</div>
-      <div class="card">Peças indígenas e marcadores</div>
-    </div>
+  <section id="sobre">
+    <h2>Sobre o Jogo</h2>
+    <p>Inspirado na cultura do povo Yaminawá, uma etnia indígena do Acre, este jogo mescla magia, espiritualidade e desafios estratégicos. 
+        Embarque em uma jornada mística por florestas sagradas, rios encantados e montanhas espirituais, desvendando saberes ancestrais, 
+        superando provações e protegendo os segredos do povo Yaminawá.</p>
+    <p>Cada erro custa uma vida, e você só tem duas vidas. Mostre que você é digno de carregar os conhecimentos desta tribo incrível!</p>
   </section>
 
   <section id="como-jogar">
     <h2>Como Jogar</h2>
-    <p>Explore os territórios, cumpra missões culturais, enfrente desafios mágicos e conquiste respeito ancestral. Reúna Miara, participe do Círculo de Sabedoria e proteja o saber Yaminawá!</p>
-  </section>
-
-  <section id="tabuleiro" class="map-section">
-    <h2>Tabuleiro Interativo</h2>
-    <p>Clique nas áreas do tabuleiro para descobrir mais sobre os territórios sagrados.</p>
-    <img src="https://cdn.pixabay.com/photo/2019/09/15/15/03/map-4477052_1280.png" alt="Tabuleiro Yaminawá" class="map-image" onclick="alert('Você clicou em um território sagrado! Em breve, interação completa.')">
+    <div class="card-grid">
+      <div class="card">Leia atentamente cada pergunta sobre a cultura Yaminawá</div>
+      <div class="card">Selecione a resposta que você acredita ser correta</div>
+      <div class="card">Acertando, você avança para a próxima pergunta</div>
+      <div class="card">Errando, você perde uma vida (você começa com 2 vidas)</div>
+      <div class="card">Complete 5 perguntas corretamente para vencer o jogo</div>
+      <div class="card">Se perder todas as vidas, o jogo acaba e você deve recomeçar</div>
+    </div>
   </section>
 
   <section id="contato">
     <h2>Contato</h2>
-    <p>Em breve você poderá jogar online ou baixar o manual completo!</p>
+    <p>Este jogo foi criado para fins educacionais, com o objetivo de difundir o conhecimento sobre a cultura Yaminawá.</p>
   </section>
 
   <footer>
     Criado por @simplciio e dn | Projeto Educacional e Interativo 2025
   </footer>
+
+  <script>
+    // Dados do jogo - perguntas sobre a tribo Yaminawá
+    const questions = [
+      {
+        question: "Onde vivem tradicionalmente os Yaminawá?",
+        options: ["Amazônia brasileira", "Andes peruanos", "Pantanal mato-grossense", "Cerrado goiano"],
+        answer: 0,
+        fact: "Os Yaminawá são um povo indígena que habita principalmente o sudoeste da Amazônia brasileira, no estado do Acre, e também no Peru."
+      },
+      {
+        question: "Qual é a principal atividade de subsistência dos Yaminawá?",
+        options: ["Caça e pesca", "Agricultura de soja", "Pecuária intensiva", "Mineração"],
+        answer: 0,
+        fact: "Os Yaminawá mantêm um modo de vida tradicional baseado na caça, pesca, coleta e agricultura de subsistência, especialmente o cultivo da mandioca."
+      },
+      {
+        question: "O que significa 'Yaminawá' na língua desse povo?",
+        options: ["Povo da Água", "Filhos da Terra", "Guardadores da Floresta", "Povo do Sol"],
+        answer: 0,
+        fact: "Yaminawá significa 'Povo da Água' em sua língua, refletindo a importância dos rios e cursos d'água em sua cultura e cosmologia."
+      },
+      {
+        question: "Qual é o nome da bebida sagrada utilizada pelos Yaminawá em rituais?",
+        options: ["Ayahuasca", "Guaraná", "Catuaba", "Caiçuma"],
+        answer: 0,
+        fact: "Os Yaminawá, como muitos povos amazônicos, utilizam a Ayahuasca (que chamam de 'Shori') em seus rituais xamânicos para cura e comunicação com os espíritos."
+      },
+      {
+        question: "Qual desses animais tem grande importância na mitologia Yaminawá?",
+        options: ["Jiboia", "Tucano", "Onça-pintada", "Todos os anteriores"],
+        answer: 3,
+        fact: "Na mitologia Yaminawá, diversos animais como a jiboia, o tucano e a onça-pintada desempenham papéis importantes em suas histórias e cosmologia."
+      },
+      {
+        question: "Como é chamado o xamã na cultura Yaminawá?",
+        options: ["Pajé", "Mori", "Kuraka", "Shori"],
+        answer: 1,
+        fact: "O xamã Yaminawá é chamado de 'Mori', sendo o responsável pelos rituais de cura e pela comunicação com o mundo espiritual."
+      },
+      {
+        question: "Qual destes NÃO é um ritual tradicional Yaminawá?",
+        options: ["Festa da Moça Nova", "Dança da Chuva", "Ritual do Tabaco", "Festa da Mandioca"],
+        answer: 2,
+        fact: "Enquanto a Festa da Moça Nova (iniciação feminina) e a Festa da Mandioca são importantes, o 'Ritual do Tabaco' não é uma celebração tradicional Yaminawá."
+      },
+      {
+        question: "Qual língua os Yaminawá falam além do português?",
+        options: ["Língua Yaminawá (Pano)", "Tupi-guarani", "Língua geral amazônica", "Quíchua"],
+        answer: 0,
+        fact: "Os Yaminawá falam uma língua do tronco Pano, também chamada de Yaminawá, além do português e em alguns casos o espanhol nas comunidades próximas ao Peru."
+      },
+      {
+        question: "Qual é o principal desafio enfrentado pelos Yaminawá hoje?",
+        options: ["Deforestação", "Mudanças climáticas", "Perda de território tradicional", "Todos os anteriores"],
+        answer: 3,
+        fact: "Os Yaminawá enfrentam diversos desafios como a perda de território tradicional, desmatamento, mudanças climáticas e pressões da sociedade envolvente."
+      },
+      {
+        question: "Como os Yaminawá chamam o mundo espiritual?",
+        options: ["Yuxin", "Huni", "Nixi Pae", "Samaúma"],
+        answer: 0,
+        fact: "Os Yaminawá chamam o mundo espiritual de 'Yuxin', onde habitam os espíritos dos ancestrais e das forças da natureza."
+      }
+    ];
+
+    // Variáveis do jogo
+    let currentQuestion = 0;
+    let score = 0;
+    let lives = 2;
+    let gameState = 'start'; // start, playing, win, lose
+    
+    // Elementos do DOM
+    const gameContainer = document.getElementById('gameContainer');
+    
+    // Função para embaralhar array (Fisher-Yates)
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+    
+    // Embaralhar perguntas
+    const shuffledQuestions = shuffleArray([...questions]).slice(0, 10);
+    
+    // Renderizar tela inicial
+    function renderStartScreen() {
+      gameContainer.innerHTML = `
+        <div class="game-start-screen">
+          <h2 class="game-title">Desafio Yaminawá</h2>
+          <p>Teste seus conhecimentos sobre a cultura Yaminawá neste jogo de desafios ancestrais!</p>
+          <p>Responda corretamente 5 perguntas para se tornar um Guardião da Sabedoria.</p>
+          <p>Cada erro custa uma vida, e você só tem duas vidas. Boa sorte!</p>
+          <button class="game-button" onclick="startGame()">Começar Jogo</button>
+        </div>
+      `;
+    }
+    
+    // Renderizar jogo
+    function renderGame() {
+      const question = shuffledQuestions[currentQuestion];
+      const progress = (score / 5) * 100;
+      
+      gameContainer.innerHTML = `
+        <div class="game-stats">
+          <div class="game-lives">Vidas: ${'❤️'.repeat(lives)}${'♡'.repeat(2 - lives)}</div>
+          <div class="game-score">Acertos: ${score}/5</div>
+        </div>
+        
+        <div class="game-progress">
+          <div class="game-progress-bar" style="width: ${progress}%"></div>
+        </div>
+        
+        <div class="game-feedback" id="feedback"></div>
+        
+        <h3 class="game-question">${question.question}</h3>
+        
+        <div class="game-options">
+          ${question.options.map((option, index) => `
+            <div class="game-option" onclick="checkAnswer(${index})">${option}</div>
+          `).join('')}
+        </div>
+      `;
+    }
+    
+    // Renderizar tela de vitória
+    function renderWinScreen() {
+      gameContainer.innerHTML = `
+        <div class="game-end-screen">
+          <h2 class="game-end-title">🏆 Vitória! 🏆</h2>
+          <p class="game-end-message">Você provou ser um verdadeiro Guardião da Sabedoria Yaminawá!</p>
+          <p>Com ${score} acertos e ${2 - lives} erros, você demonstrou grande conhecimento sobre esta cultura fascinante.</p>
+          <button class="game-button" onclick="resetGame()">Jogar Novamente</button>
+        </div>
+      `;
+    }
+    
+    // Renderizar tela de derrota
+    function renderLoseScreen() {
+      const question = shuffledQuestions[currentQuestion];
+      
+      gameContainer.innerHTML = `
+        <div class="game-end-screen">
+          <h2 class="game-end-title">💀 Game Over 💀</h2>
+          <p class="game-end-message">Você perdeu todas as suas vidas!</p>
+          <p>A resposta correta para a última pergunta era: <strong>${question.options[question.answer]}</strong></p>
+          <p>Fato interessante: ${question.fact}</p>
+          <button class="game-button" onclick="resetGame()">Tentar Novamente</button>
+        </div>
+      `;
+    }
+    
+    // Iniciar jogo
+    function startGame() {
+      currentQuestion = 0;
+      score = 0;
+      lives = 2;
+      gameState = 'playing';
+      renderGame();
+    }
+    
+    // Reiniciar jogo
+    function resetGame() {
+      gameState = 'start';
+      renderStartScreen();
+    }
+    
+    // Verificar resposta
+    function checkAnswer(selectedIndex) {
+      const question = shuffledQuestions[currentQuestion];
+      const feedback = document.getElementById('feedback');
+      
+      if (selectedIndex === question.answer) {
+        // Resposta correta
+        score++;
+        feedback.innerHTML = `✅ Correto! <br>${question.fact}`;
+        feedback.style.color = '#4caf50';
+      } else {
+        // Resposta errada
+        lives--;
+        feedback.innerHTML = `❌ Errado! A resposta correta é: <strong>${question.options[question.answer]}</strong><br>${question.fact}`;
+        feedback.style.color = '#ff5252';
+      }
+      
+      // Verificar se ganhou ou perdeu
+      if (score >= 5) {
+        gameState = 'win';
+        setTimeout(renderWinScreen, 5000);
+        return;
+      }
+      
+      if (lives <= 0) {
+        gameState = 'lose';
+        setTimeout(renderLoseScreen, 5000);
+        return;
+      }
+      
+      // Próxima pergunta
+      currentQuestion = (currentQuestion + 1) % shuffledQuestions.length;
+      setTimeout(renderGame, 2000);
+    }
+    
+    // Inicializar jogo
+    renderStartScreen();
+    
+    // Tornar funções globais para acesso pelo HTML
+    window.startGame = startGame;
+    window.resetGame = resetGame;
+    window.checkAnswer = checkAnswer;
+  </script>
 </body>
 </html>
